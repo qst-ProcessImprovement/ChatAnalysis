@@ -24,6 +24,15 @@ logger = logging.getLogger(__name__)
 DEBUG_CONVERSATION_FILE = "debug/conversation_history.txt"
 DEBUG_RESULT_FILE = "debug/result.txt"
 
+# Load emotion analysis prompt from file
+EMOTION_ANALYSIS_PROMPT_FILE = "emotion_analysis_prompt.txt"
+try:
+    with open(EMOTION_ANALYSIS_PROMPT_FILE, "r") as file:
+        EMOTION_ANALYSIS_PROMPT_CORE = file.read().strip()
+except FileNotFoundError as e:
+    logger.warning(f"Emotion analysis prompt file not found: {EMOTION_ANALYSIS_PROMPT_FILE}")
+    raise e
+
 
 class OpenAIClient:
     """Class to handle interactions with OpenAI API."""
@@ -249,13 +258,13 @@ class MessageFormatter:
         return conversations_by_date
     
     @staticmethod
-    def format_analysis_results(emotion_analysis: Dict[str, str], trend_analysis: str) -> str:
+    def format_analysis_results(emotion_analysis: Dict[str, str], trend_analysis: str = None) -> str:
         """
         Format the emotion analysis results into a text format.
         
         Args:
             emotion_analysis: Dictionary with dates as keys and emotion analysis as values.
-            trend_analysis: Analysis of emotion trends over time.
+            trend_analysis: Analysis of emotion trends over time. Defaults to None and is not used.
             
         Returns:
             Formatted analysis results.
@@ -265,9 +274,6 @@ class MessageFormatter:
         for date in sorted(emotion_analysis.keys()):
             content += f"\n日付: {date}\n"
             content += f"{emotion_analysis[date]}\n"
-        
-        content += "\n=== 感情の変化の分析 ===\n"
-        content += trend_analysis
         
         return content
 
@@ -316,28 +322,6 @@ class EmotionAnalyzer:
         
         return emotion_analysis
     
-    def analyze_emotion_trends(self, emotion_analysis: Dict[str, str]) -> str:
-        """
-        Analyze trends in emotions over time.
-        
-        Args:
-            emotion_analysis: Dictionary with dates as keys and emotion analysis as values.
-            
-        Returns:
-            Analysis of emotion trends over time.
-        """
-        dates = sorted(emotion_analysis.keys())
-        all_analyses = "\n\n".join([f"日付: {date}\n分析: {emotion_analysis[date]}" for date in dates])
-        
-        prompt = self._create_trend_analysis_prompt(all_analyses)
-        
-        try:
-            trend_analysis = self.openai_client.chat_completion(prompt)
-            return trend_analysis
-        except Exception as e:
-            logger.error(f"Error analyzing emotion trends: {e}")
-            return f"トレンド分析エラー: {e}"
-    
     @staticmethod
     def _create_emotion_analysis_prompt(date: str, messages: str) -> str:
         """
@@ -350,36 +334,12 @@ class EmotionAnalyzer:
         Returns:
             A prompt for emotion analysis.
         """
-        return f"""
-        以下は特定の日付（{date}）のチャットメッセージです。
-        これらのメッセージからユーザーの感情状態を簡潔に分析してください。
-        ポジティブな感情、ネガティブな感情、中立的な感情などを特定し、
-        その日のユーザーの全体的な感情状態を3-5文程度で簡潔に要約してください。
-        冗長な説明は避け、要点のみを述べてください。
+        return f"""以下は特定の日付（{date}）のチャットメッセージです。
+{EMOTION_ANALYSIS_PROMPT_CORE}
 
-        メッセージ:
-        {messages}
-        """
-    
-    @staticmethod
-    def _create_trend_analysis_prompt(all_analyses: str) -> str:
-        """
-        Create a prompt for trend analysis.
-        
-        Args:
-            all_analyses: All emotion analyses combined.
-            
-        Returns:
-            A prompt for trend analysis.
-        """
-        return f"""
-        以下は日付ごとの感情分析結果です。これらの結果を時系列で分析し、
-        感情の変化や傾向、パターンを特定してください。
-        特に注目すべき変化や転換点があれば強調してください。
-        分析は簡潔に、5-7文程度にまとめてください。冗長な説明は避け、要点のみを述べてください。
-
-        {all_analyses}
-        """
+メッセージ:
+{messages}
+"""
 
 
 class ResultsHandler:
@@ -546,10 +506,8 @@ class ChatAnalysisApp:
             # Analyze emotions
             emotion_analysis = self.analyzer.analyze_emotions_by_date(conversations_by_date)
             
-            trend_analysis = self.analyzer.analyze_emotion_trends(emotion_analysis)
-            
-            # Format results
-            results_content = self.formatter.format_analysis_results(emotion_analysis, trend_analysis)
+            # Format results (トレンド分析を行わない)
+            results_content = self.formatter.format_analysis_results(emotion_analysis)
             
             # Output results (to Slack or debug file)
             success = self._output_results(results_content)
