@@ -263,8 +263,7 @@ class MessageFormatter:
         content = "=== 日付ごとの感情分析 ===\n"
         
         for date in sorted(emotion_analysis.keys()):
-            content += f"\n日付: {date}\n"
-            content += f"{emotion_analysis[date]}\n"
+            content += f"{date}: {emotion_analysis[date].strip()}\n"
         
         content += "\n=== 感情の変化の分析 ===\n"
         content += trend_analysis
@@ -352,10 +351,8 @@ class EmotionAnalyzer:
         """
         return f"""
         以下は特定の日付（{date}）のチャットメッセージです。
-        これらのメッセージからユーザーの感情状態を簡潔に分析してください。
-        ポジティブな感情、ネガティブな感情、中立的な感情などを特定し、
-        その日のユーザーの全体的な感情状態を3-5文程度で簡潔に要約してください。
-        冗長な説明は避け、要点のみを述べてください。
+        これらのメッセージからユーザーの感情状態を分析し、1-2行で簡潔に要約してください。
+        感情の種類（ポジティブ/ネガティブ/中立）と、その理由を短く述べてください。
 
         メッセージ:
         {messages}
