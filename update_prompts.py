@@ -1,18 +1,22 @@
 import os
-import re
 import argparse
+import sys
 from openai import OpenAI
 from dotenv import load_dotenv
 
 def main():
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='Update prompts using OpenAI')
-    parser.add_argument('--prompt', choices=['emotion', 'trend', 'both'], default='both',
-                        help='Which prompt to update: emotion, trend, or both')
-    parser.add_argument('--model', default='gpt-4o-mini',
-                        help='OpenAI model to use (default: gpt-4o-mini)')
+    parser.add_argument('instruction', nargs='?', default=None,
+                        help='Instruction for prompt modification (e.g., "要約が少々長いので、1・2行となるようにしてほしい")')
     args = parser.parse_args()
 
+    # Check if instruction is provided
+    if args.instruction is None:
+        print("Error: No instruction provided.")
+        print("Usage: python update_prompts.py \"修正指示\"")
+        sys.exit(1)
+    
     # Load environment variables from .env file
     load_dotenv()
     
@@ -27,88 +31,91 @@ def main():
     # Initialize OpenAI client
     client = OpenAI(api_key=api_key)
     
-    # Read the current prompts.py content
+    # Fixed values
+    model = "gpt-4o-mini"
+    prompt_file = "emotion_analysis_prompt.txt"
+    
+    # Read the current prompt content
     try:
-        with open("prompts.py", "r") as file:
-            prompts_content = file.read()
-    except FileNotFoundError:
-        print("Error: prompts.py file not found.")
+        if os.path.exists(prompt_file):
+            with open(prompt_file, "r") as file:
+                current_emotion_prompt = file.read().strip()
+        else:
+            # If the file doesn't exist yet, try to extract from prompts.py
+            with open("prompts.py", "r") as file:
+                prompts_content = file.read()
+            
+            # Extract current emotion prompt from prompts.py
+            lines = prompts_content.split('\n')
+            emotion_prompt_lines = []
+            capturing = False
+            
+            for line in lines:
+                if 'EMOTION_ANALYSIS_PROMPT = """' in line:
+                    capturing = True
+                    continue
+                elif capturing and '"""' in line:
+                    capturing = False
+                    continue
+                elif capturing:
+                    emotion_prompt_lines.append(line)
+            
+            current_emotion_prompt = '\n'.join(emotion_prompt_lines).strip()
+            
+            if not current_emotion_prompt:
+                raise ValueError("Could not extract emotion analysis prompt")
+    except Exception as e:
+        print(f"Error reading prompt file: {e}")
         return
     
-    # Extract current prompts
-    emotion_prompt_match = re.search(r'EMOTION_ANALYSIS_PROMPT\s*=\s*"""(.*?)"""', prompts_content, re.DOTALL)
-    trend_prompt_match = re.search(r'TREND_ANALYSIS_PROMPT\s*=\s*"""(.*?)"""', prompts_content, re.DOTALL)
+    # Update emotion analysis prompt
+    print(f"Updating emotion analysis prompt using {model} with instruction: {args.instruction}")
+    new_emotion_prompt = update_prompt(client, model, "emotion analysis", current_emotion_prompt, args.instruction)
     
-    if not emotion_prompt_match or not trend_prompt_match:
-        print("Error: Could not find prompts in prompts.py")
-        return
-    
-    current_emotion_prompt = emotion_prompt_match.group(1).strip()
-    current_trend_prompt = trend_prompt_match.group(1).strip()
-    
-    # Update prompts based on command line arguments
-    if args.prompt in ['emotion', 'both']:
-        print(f"Updating emotion analysis prompt using {args.model}...")
-        new_emotion_prompt = update_prompt(client, args.model, "emotion analysis", current_emotion_prompt)
-        if new_emotion_prompt:
-            prompts_content = prompts_content.replace(
-                f'EMOTION_ANALYSIS_PROMPT = """{current_emotion_prompt}"""',
-                f'EMOTION_ANALYSIS_PROMPT = """{new_emotion_prompt}"""'
-            )
-    
-    if args.prompt in ['trend', 'both']:
-        print(f"Updating trend analysis prompt using {args.model}...")
-        new_trend_prompt = update_prompt(client, args.model, "trend analysis", current_trend_prompt)
-        if new_trend_prompt:
-            prompts_content = prompts_content.replace(
-                f'TREND_ANALYSIS_PROMPT = """{current_trend_prompt}"""',
-                f'TREND_ANALYSIS_PROMPT = """{new_trend_prompt}"""'
-            )
-    
-    # Write the updated prompts back to the file
-    with open("prompts.py", "w") as file:
-        file.write(prompts_content)
-    
-    print("Successfully updated prompts.py")
-    
-    # Create a new branch and commit the changes
-    create_branch_and_commit()
+    if new_emotion_prompt:
+        # Save the updated prompt to the txt file
+        with open(prompt_file, "w") as file:
+            file.write(new_emotion_prompt)
+        
+        print(f"Successfully updated {prompt_file}")
+        
+        # Create a new branch and commit the changes
+        create_branch_and_commit(prompt_file, args.instruction)
+    else:
+        print(f"Failed to update {prompt_file}")
 
-def update_prompt(client, model, prompt_type, current_prompt):
+def update_prompt(client, model, prompt_type, current_prompt, instruction):
     """
     Update a prompt using OpenAI.
     
     Args:
         client: OpenAI client
         model: Model to use
-        prompt_type: Type of prompt (emotion analysis or trend analysis)
+        prompt_type: Type of prompt (emotion analysis)
         current_prompt: Current prompt text
+        instruction: Instruction for prompt modification
         
     Returns:
         Updated prompt text or None if there was an error
     """
     try:
-        system_message = f"""
-        You are an expert at creating effective prompts for AI language models.
-        Your task is to improve the existing {prompt_type} prompt while maintaining its core functionality.
+        system_message = f"""You are an expert at creating effective prompts for AI language models.
+        Your task is to modify the existing {prompt_type} prompt according to this instruction: {instruction}.
         
         The prompt should:
-        1. Be clear and concise
-        2. Maintain all format placeholders (like {{date}}, {{messages}}, or {{all_analyses}})
-        3. Preserve the original language (Japanese)
-        4. Keep the same general purpose and output format
-        5. Potentially improve clarity, specificity, or effectiveness
+        1. Keep the same general purpose and output format
+        2. Preserve the original language (Japanese)
+        3. Potentially improve clarity, specificity, or effectiveness
         
         Return ONLY the improved prompt text, without any explanations or additional text.
+        Do NOT include any placeholders like {{date}} or {{messages}} in your response.
         """
         
-        user_message = f"""
-        Here is the current {prompt_type} prompt:
+        user_message = f"""Here is the current {prompt_type} prompt:
         
-        {current_prompt}
+{current_prompt}
         
-        Please improve this prompt while maintaining its core functionality and format placeholders.
-        """
+Please modify this prompt according to this instruction: {instruction}."""
         
         response = client.chat.completions.create(
             model=model,
@@ -119,41 +126,42 @@ def update_prompt(client, model, prompt_type, current_prompt):
         )
         
         new_prompt = response.choices[0].message.content.strip()
-        
-        # Verify that the placeholders are still present
-        if prompt_type == "emotion analysis" and "{date}" not in new_prompt or "{messages}" not in new_prompt:
-            print("Error: The updated emotion analysis prompt is missing required placeholders.")
-            return None
-        
-        if prompt_type == "trend analysis" and "{all_analyses}" not in new_prompt:
-            print("Error: The updated trend analysis prompt is missing required placeholders.")
-            return None
-        
         return new_prompt
         
     except Exception as e:
         print(f"Error when calling OpenAI API: {e}")
         return None
 
-def create_branch_and_commit():
+def create_branch_and_commit(prompt_file, instruction):
     """
     Create a new branch, commit the changes, and push to remote.
+    
+    Args:
+        prompt_file: The file that was updated
+        instruction: Instruction used for modification
     """
     try:
         # Create a new branch
         branch_name = f"update-prompts-{os.popen('date +%Y%m%d%H%M%S').read().strip()}"
         os.system(f"git checkout -b {branch_name}")
         
+        # Create commit message
+        commit_message = f'Update emotion analysis prompt with instruction: "{instruction}"'
+        pr_title = "Update emotion analysis prompt with custom instruction"
+        pr_body = f'This PR updates the emotion analysis prompt using OpenAI with the instruction: "{instruction}".'
+        
         # Commit the changes
-        os.system("git add prompts.py")
-        os.system('git commit -m "Update prompts using OpenAI"')
+        os.system(f"git add {prompt_file}")
+        os.system(f'git commit -m "{commit_message}"')
         
         # Push the branch
         os.system(f"git push origin {branch_name}")
         
         # Create a pull request if GitHub CLI is available
         if os.system("command -v gh &> /dev/null") == 0:
-            os.system('gh pr create --title "Update prompts using OpenAI" --body "This PR updates the prompts used for emotion and trend analysis using OpenAI."')
+            # Escape quotes in PR body for shell command
+            escaped_pr_body = pr_body.replace('"', '\\"')
+            os.system(f'gh pr create --title "{pr_title}" --body "{escaped_pr_body}"')
         else:
             print(f"GitHub CLI (gh) is not installed. Please create a pull request manually for branch {branch_name}.")
         
