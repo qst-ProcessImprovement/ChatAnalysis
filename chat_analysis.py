@@ -24,6 +24,9 @@ logger = logging.getLogger(__name__)
 DEBUG_CONVERSATION_FILE = "debug/conversation_history.txt"
 DEBUG_RESULT_FILE = "debug/result.txt"
 
+# Import prompts from external file
+from prompts import EMOTION_ANALYSIS_PROMPT, TREND_ANALYSIS_PROMPT
+
 
 class OpenAIClient:
     """Class to handle interactions with OpenAI API."""
@@ -350,16 +353,7 @@ class EmotionAnalyzer:
         Returns:
             A prompt for emotion analysis.
         """
-        return f"""
-        以下は特定の日付（{date}）のチャットメッセージです。
-        これらのメッセージからユーザーの感情状態を簡潔に分析してください。
-        ポジティブな感情、ネガティブな感情、中立的な感情などを特定し、
-        その日のユーザーの全体的な感情状態を3-5文程度で簡潔に要約してください。
-        冗長な説明は避け、要点のみを述べてください。
-
-        メッセージ:
-        {messages}
-        """
+        return EMOTION_ANALYSIS_PROMPT.format(date=date, messages=messages)
     
     @staticmethod
     def _create_trend_analysis_prompt(all_analyses: str) -> str:
@@ -372,14 +366,7 @@ class EmotionAnalyzer:
         Returns:
             A prompt for trend analysis.
         """
-        return f"""
-        以下は日付ごとの感情分析結果です。これらの結果を時系列で分析し、
-        感情の変化や傾向、パターンを特定してください。
-        特に注目すべき変化や転換点があれば強調してください。
-        分析は簡潔に、5-7文程度にまとめてください。冗長な説明は避け、要点のみを述べてください。
-
-        {all_analyses}
-        """
+        return TREND_ANALYSIS_PROMPT.format(all_analyses=all_analyses)
 
 
 class ResultsHandler:
