@@ -1,0 +1,127 @@
+U08BTPRSAHZ: がチャンネルのトピックを消去しました (timestamp: 2025-02-28 07:57:11)
+U08C1R0819A: Here is the file: (timestamp: 2025-02-28 07:22:32)
+U08C1R0819A: Here is the file: (timestamp: 2025-02-28 06:01:13)
+U08BTPRSAHZ: <https://youtu.be/3H-pAv0nWvQ?si=gEsIaRL9ztrAeigV|https://youtu.be/3H-pAv0nWvQ?si=gEsIaRL9ztrAeigV>
+これは便利そうなサービスだね。実用性ありそう (timestamp: 2025-02-27 13:11:38)
+U08BTPRSAHZ: <https://github.blog/changelog/2025-02-26-code-review-in-github-copilot-is-now-in-public-preview/?s=31|https://github.blog/changelog/2025-02-26-code-review-in-github-copilot-is-now-in-public-preview/?s=31> (timestamp: 2025-02-27 11:33:00)
+U08BTPRSAHZ: <https://www.nikkei.com/article/DGXZQOUC285BD0Y5A120C2000000/?s=31|https://www.nikkei.com/article/DGXZQOUC285BD0Y5A120C2000000/?s=31>
+ほしい (timestamp: 2025-02-27 11:03:08)
+U08BTPRSAHZ: いやー素晴らしいな〜 (timestamp: 2025-02-27 09:07:28)
+U08BTPRSAHZ:  (timestamp: 2025-02-27 09:07:05)
+U08BTPRSAHZ: ```ソースコードを確認し、現在test_main.pyでテストされていないロジックを特定して下さい。
+テストされていないロジックについて、テストケースを追加し、PASSすることを確認して下さい。``` (timestamp: 2025-02-27 08:59:00)
+U08BTPRSAHZ: NVIDIA の今期の好決算は分かりきっているのだが、それよりもシンガポール向けの GPU 売上がどうなるか (timestamp: 2025-02-27 06:36:32)
+U08BTPRSAHZ: <https://x.com/goto_finance/status/1894861801172672547?t=as_h0EeFyOup-4_T-i20xA&amp;s=31|https://x.com/goto_finance/status/1894861801172672547?t=as_h0EeFyOup-4_T-i20xA&amp;s=31> (timestamp: 2025-02-27 06:35:26)
+U08BTPRSAHZ: CEO (Jensen Huang) コメント
+「Blackwellの需要は驚異的で、推論AIがトレーニングのためのコンピューティングを増やし、モデルをよりスマートにし、長時間思考のためのコンピューティングを増やすという、もう1つのスケーリング法則を追加しています。我々は、Blackwell AIスーパーコンピューターの大規模生産を成功裏に拡大し、初四半期に数十億ドルの売上を達成しました。AIはエージェント型AIと物理的AIが次のAIの波の舞台を整え、最大の産業を革命的に変えるため、光速で進化しています。」 (timestamp: 2025-02-27 06:30:21)
+U08C1R0819A: Here is the file: (timestamp: 2025-02-27 06:01:14)
+U08BTPRSAHZ: <https://x.com/Investingcom/status/1894774632114176232?t=C9EzmDtYoNNK6ZomNjgzig&amp;s=31|https://x.com/Investingcom/status/1894774632114176232?t=C9EzmDtYoNNK6ZomNjgzig&amp;s=31>
+米国景気やばいですなぁ (timestamp: 2025-02-27 04:25:17)
+U08BTPRSAHZ: <https://x.com/tukiyomiiori/status/1894766921045917942?t=hrRT2dhwnT-cbMSKpkjrtQ&amp;s=31|https://x.com/tukiyomiiori/status/1894766921045917942?t=hrRT2dhwnT-cbMSKpkjrtQ&amp;s=31>
+最近のコーディングはこんな感じばっかりよね (timestamp: 2025-02-27 03:52:16)
+U08BTPRSAHZ: <https://x.com/ctgptlb/status/1894794233200157050?t=MSZ9p9t6L4z5CL2QNf7b5A&amp;s=31|https://x.com/ctgptlb/status/1894794233200157050?t=MSZ9p9t6L4z5CL2QNf7b5A&amp;s=31>
+ほー (timestamp: 2025-02-27 03:38:15)
+U08BTPRSAHZ: <https://x.com/36krJ/status/1894558471221383562?t=NKR4bxuDXDHaWCRcNT5A2Q&amp;s=31|https://x.com/36krJ/status/1894558471221383562?t=NKR4bxuDXDHaWCRcNT5A2Q&amp;s=31> (timestamp: 2025-02-26 21:28:37)
+U08BTPRSAHZ: <https://www.techno-edge.net/article/2025/02/26/4146.html?utm_source=twitter&amp;utm_medium=social&amp;utm_content=tweet&amp;s=31|https://www.techno-edge.net/article/2025/02/26/4146.html?utm_source=twitter&amp;utm_medium=social&amp;utm_content=tweet&amp;s=31>
+宙返りはいいから、フライパンを持って台所で料理をしてくれ (timestamp: 2025-02-26 17:06:44)
+U08BTPRSAHZ: 限界までAI使いまくった開発をしてみたい (timestamp: 2025-02-26 15:21:12)
+U08BTPRSAHZ: 個人でアプリ開発をする敷居がどんどん下がってきておるな。
+最新技術使って、便利アプリを作りまくってみたい。 (timestamp: 2025-02-26 15:20:29)
+U08BTPRSAHZ: <https://note.com/ioridev/n/n5525b1cabc5c>
+このOpenHandsがいい感じ。OSS版のDevinって感じなんだけど、自宅サーバでこれを起動しておいて、Issue登録すればPRまでやってくれるんじゃなかろうか？ (timestamp: 2025-02-26 15:19:42)
+U08BTPRSAHZ: proxmox は神ツールであるな (timestamp: 2025-02-26 13:57:47)
+U08BTPRSAHZ: <https://www.itmedia.co.jp/aiplus/spv/2502/26/news128.html?s=31|https://www.itmedia.co.jp/aiplus/spv/2502/26/news128.html?s=31>
+o1が無料の時代 (timestamp: 2025-02-26 11:42:27)
+U08BTPRSAHZ: <https://x.com/kaitou_ryaku/status/1894453591735505353?t=awiXVpYRuvXYdMsvuPTscA&amp;s=31|https://x.com/kaitou_ryaku/status/1894453591735505353?t=awiXVpYRuvXYdMsvuPTscA&amp;s=31> (timestamp: 2025-02-26 09:49:39)
+U08BTPRSAHZ: あら、今日は事業部MTGなし？ (timestamp: 2025-02-26 06:35:00)
+U08C1R0819A: Here is the file: (timestamp: 2025-02-26 06:01:08)
+U08BTPRSAHZ: <https://www.publickey1.jp/blog/25/anthropicclaude_codeclaude_37_sonnet.html?s=31|https://www.publickey1.jp/blog/25/anthropicclaude_codeclaude_37_sonnet.html?s=31> (timestamp: 2025-02-26 03:12:33)
+U08BTPRSAHZ: <https://x.com/btibor91/status/1894405288767492276?t=rHmcZGiidXxYedqLDA7gtQ&amp;s=31|https://x.com/btibor91/status/1894405288767492276?t=rHmcZGiidXxYedqLDA7gtQ&amp;s=31>
+草 (timestamp: 2025-02-26 03:03:08)
+U08BTPRSAHZ: そういや、最近津波古の気配を感じないな (timestamp: 2025-02-25 17:50:56)
+U08BTPRSAHZ: あ、事業部MTGあしたか。 (timestamp: 2025-02-25 17:31:41)
+U08BTPRSAHZ: ん？ (timestamp: 2025-02-25 17:31:36)
+U08BTPRSAHZ: :brain: (timestamp: 2025-02-25 17:15:27)
+U08BTPRSAHZ: 頭が疲弊している (timestamp: 2025-02-25 17:15:02)
+U08BTPRSAHZ: よい (timestamp: 2025-02-25 10:07:29)
+U08C1R0819A: Here is the file: (timestamp: 2025-02-25 06:01:13)
+U08BTPRSAHZ: <https://www.publickey1.jp/blog/25/aiamazon_q_developerjavajava_21_lts.html?s=31|https://www.publickey1.jp/blog/25/aiamazon_q_developerjavajava_21_lts.html?s=31> (timestamp: 2025-02-25 05:09:15)
+U08BTPRSAHZ: <https://x.com/taziku_co/status/1893961163362259008?t=XaSUbH16diel76M4GunX4w&amp;s=31|https://x.com/taziku_co/status/1893961163362259008?t=XaSUbH16diel76M4GunX4w&amp;s=31> (timestamp: 2025-02-24 19:08:00)
+U08BTPRSAHZ: OpenAI Operatorでランチの店を検索してみた。 (timestamp: 2025-02-24 18:52:26)
+U08BTPRSAHZ: <https://x.com/ai_hakase_/status/1892724927117000774?t=JPhux1vU8Savpp1M7xfNkQ&amp;s=31|https://x.com/ai_hakase_/status/1892724927117000774?t=JPhux1vU8Savpp1M7xfNkQ&amp;s=31> (timestamp: 2025-02-24 15:59:25)
+U08C1R0819A: Here is the file: (timestamp: 2025-02-24 06:01:09)
+U08BTPRSAHZ: <https://x.com/hAru_mAki_ch/status/1893505741530480960?t=9INC8ZuavUIKKTTCA6hm3A&amp;s=31|https://x.com/hAru_mAki_ch/status/1893505741530480960?t=9INC8ZuavUIKKTTCA6hm3A&amp;s=31>
+メトリクス分析に使えないかね？ (timestamp: 2025-02-23 16:54:59)
+U08BTPRSAHZ: これ、Xにも投稿できるようにならんかなぁ。browser-use使えばできるか？ (timestamp: 2025-02-23 16:28:58)
+U08BTPRSAHZ: いいね、面白い (timestamp: 2025-02-23 16:28:35)
+U08BTPRSAHZ: 今日の作業内容をclineからobsidianに投稿するテスト (timestamp: 2025-02-23 16:28:13)
+U08BTPRSAHZ: しかし、MCP増えすぎると、AIが混乱したりしないのかね？ (timestamp: 2025-02-23 15:54:53)
+U08BTPRSAHZ: <https://x.com/cline/status/1892812164077150558>
+MCPマーケットプレイスええな。ボタン一発でMCPサーバがインストールできる（uninstallはできないみたいだが）。 (timestamp: 2025-02-23 15:54:38)
+U08BTPRSAHZ: <https://x.com/elonmusk/status/1893386883444437415?t=0XE9Z9CgM278qcBBq8RzrA&amp;s=31|https://x.com/elonmusk/status/1893386883444437415?t=0XE9Z9CgM278qcBBq8RzrA&amp;s=31>
+嫌いじゃない (timestamp: 2025-02-23 09:36:58)
+U08BTPRSAHZ: Copilot Edits完全お任せで、ローカルにsupabaseインストールしてくれた。いやー、すばらしいな〜 (timestamp: 2025-02-23 08:06:46)
+U08C1R0819A: Here is the file: (timestamp: 2025-02-23 06:01:07)
+U08BTPRSAHZ: <https://sizu.me/laiso/posts/rzhftmu6k8tx?s=31|https://sizu.me/laiso/posts/rzhftmu6k8tx?s=31> (timestamp: 2025-02-23 05:37:22)
+U08BTPRSAHZ:  (timestamp: 2025-02-22 22:27:45)
+U08BTPRSAHZ: Clineはターミナル見えてる。 (timestamp: 2025-02-22 22:27:10)
+U08BTPRSAHZ: Roo-Clineは、SSH接続してるとターミナルの内容みれんのか？なんでじゃ (timestamp: 2025-02-22 22:27:01)
+U08BTPRSAHZ: ん？？ (timestamp: 2025-02-22 22:26:39)
+U08BTPRSAHZ: ダメやの〜 (timestamp: 2025-02-22 21:56:51)
+U08BTPRSAHZ: ちなみに、windsurfはSSHプラグインが入れられなかった (timestamp: 2025-02-22 21:56:40)
+U08BTPRSAHZ: 完璧やん (timestamp: 2025-02-22 21:56:17)
+U08BTPRSAHZ: これで、Cursorのターミナルは接続先のubuntuで動くので、Clineがどれだけぶっこわしても問題なし (timestamp: 2025-02-22 21:56:13)
+U08BTPRSAHZ: Cursorから、ubuntu上のフォルダが見えてる。 (timestamp: 2025-02-22 21:54:24)
+U08BTPRSAHZ: いいぞー、珍しく順調だ！ (timestamp: 2025-02-22 21:53:16)
+U08BTPRSAHZ: MacのCursorから、SSHでubuntu-serverに接続。 (timestamp: 2025-02-22 21:52:59)
+U08BTPRSAHZ: proxmox入れて、ubuntu-server入れた (timestamp: 2025-02-22 21:51:42)
+U08BTPRSAHZ: proxmoxでデュアル環境つくる。Clineに自由に環境触らせるために。 (timestamp: 2025-02-22 18:41:56)
+U08BTPRSAHZ: <https://www.oreilly.com/radar/the-end-of-programming-as-we-know-it/?s=31|https://www.oreilly.com/radar/the-end-of-programming-as-we-know-it/?s=31> (timestamp: 2025-02-22 10:05:50)
+U08BTPRSAHZ: <https://x.com/jaguring1/status/1893082201685942458?t=rQGSxD5Vwy8i6WBbY404Ew&amp;s=31|https://x.com/jaguring1/status/1893082201685942458?t=rQGSxD5Vwy8i6WBbY404Ew&amp;s=31> (timestamp: 2025-02-22 09:53:23)
+U08BTPRSAHZ: <https://x.com/1x_tech/status/1893012909082714299?t=KOJJB78sVhsZIvB4cBFqrA&amp;s=31|https://x.com/1x_tech/status/1893012909082714299?t=KOJJB78sVhsZIvB4cBFqrA&amp;s=31> (timestamp: 2025-02-22 09:47:29)
+U08C1R0819A: Here is the file: (timestamp: 2025-02-22 06:01:13)
+U08BTPRSAHZ: <https://note.com/rinte/n/n645aeff0765b|https://note.com/rinte/n/n645aeff0765b> (timestamp: 2025-02-21 19:08:27)
+U08BTPRSAHZ: <https://sizu.me/laiso/posts/e7wx3nvw210v?s=31|https://sizu.me/laiso/posts/e7wx3nvw210v?s=31>
+まだまだだね。GPT 5でどうなるかが楽しみではある (timestamp: 2025-02-21 18:43:37)
+U08BTPRSAHZ: 1時間前にロールアウトされた。ばっかりやん (timestamp: 2025-02-21 18:24:45)
+U08BTPRSAHZ: <https://www.itmedia.co.jp/aiplus/spv/2502/21/news165.html?s=31|https://www.itmedia.co.jp/aiplus/spv/2502/21/news165.html?s=31>
+おお？いつの間に！週末に触ってみよ (timestamp: 2025-02-21 18:24:03)
+U08BTPRSAHZ: <https://www.itmedia.co.jp/aiplus/spv/2502/21/news170.html?s=31|https://www.itmedia.co.jp/aiplus/spv/2502/21/news170.html?s=31>
+久々に X に投稿してみたくなった:rolling_on_the_floor_laughing: (timestamp: 2025-02-21 18:23:00)
+U08BTPRSAHZ: かえろ (timestamp: 2025-02-21 18:17:56)
+U08BTPRSAHZ: 修正完了。たぶん。 (timestamp: 2025-02-21 18:17:51)
+U08BTPRSAHZ: これはめんどくさいかもしれない (timestamp: 2025-02-21 16:57:04)
+U08BTPRSAHZ: バグをみつけてしまった (timestamp: 2025-02-21 16:56:54)
+U08BTPRSAHZ: <https://youtube.com/watch?v=Z3yQHYNXPws&amp;si=io6Fk_bftsV2P7vv|https://youtube.com/watch?v=Z3yQHYNXPws&amp;si=io6Fk_bftsV2P7vv> (timestamp: 2025-02-21 11:51:46)
+U08C1R0819A: Here is the file: (timestamp: 2025-02-21 06:01:08)
+U08BTPRSAHZ: <https://x.com/d_1d2d/status/1892674764164235676?t=23axUUwjsr2lEM3TNc7vSQ&amp;s=31|https://x.com/d_1d2d/status/1892674764164235676?t=23axUUwjsr2lEM3TNc7vSQ&amp;s=31> (timestamp: 2025-02-21 05:55:55)
+U08BTPRSAHZ: Podcast生成ワークフロー便利だなぁ。作業しながら聞けるの素晴らしいわ (timestamp: 2025-02-20 17:54:42)
+U08BTPRSAHZ:  (timestamp: 2025-02-20 12:48:30)
+U08BTPRSAHZ: 説明資料に使えるネタが足りん。 (timestamp: 2025-02-20 12:40:43)
+U08BTPRSAHZ: 判定ロジック修正したら、全Proj合計しても、安定度警告２件しか出なくなった。 (timestamp: 2025-02-20 12:40:14)
+U08BTPRSAHZ: <https://x.com/DrJimFan/status/1892404919480832259>
+Jim Fanが魚AIに反応してる。 (timestamp: 2025-02-20 12:31:09)
+U08BTPRSAHZ: まぁ、これでいいか。 (timestamp: 2025-02-20 12:20:09)
+U08BTPRSAHZ: いまのサマリは↑の実装になっておるな。そういや、そんな検討を以前したような気もする。 (timestamp: 2025-02-20 12:19:39)
+U08BTPRSAHZ: これを見ると、そのようにつけているように見えなくもない。 (timestamp: 2025-02-20 12:17:20)
+U08BTPRSAHZ: レビューが一日で終わらないとき、レビュー対象工数って、何付けてるんだろ？
+例えば、レビュー対象が１００ｈ分あったとして、
+１０日に１割
+１１日に残りの９割
+をレビューしたとして、１０日の日のメトリクスには、レビュー対象工数＝１０ｈと付けてるんだろうか？ (timestamp: 2025-02-20 12:15:13)
+U08BTPRSAHZ: いやー、これはExcelにするの大変だな・・
+コンサル説明用に、データ加工してしまうか。 (timestamp: 2025-02-20 12:08:19)
+U08BTPRSAHZ: 表現しずらい (timestamp: 2025-02-20 12:06:38)
+U08BTPRSAHZ: そうだ、同一タスク内のレビュー速度は合算してから、σだしてるんだった。
+これは正しい処理だと思うのだけど、Excelでどうやって見せようかしら。 (timestamp: 2025-02-20 12:05:29)
+U08BTPRSAHZ: 流石におかしいので、バグを疑い中です (timestamp: 2025-02-20 12:02:13)
+UTHAD0VDY: 64σとか出ることあるのねｗ (timestamp: 2025-02-20 11:48:21)
+U08BTPRSAHZ: これは流石に、例で見せるには極端すぎる気が (timestamp: 2025-02-20 11:36:29)
+U08BTPRSAHZ: 64σ・・・ (timestamp: 2025-02-20 11:36:14)
+U08BTPRSAHZ: まぁ、バグが見つかったので良しとしとくかの。 (timestamp: 2025-02-20 11:16:31)
+U08BTPRSAHZ: 標準偏差の計算ロジック修正したら、OLTの警告がなくなってしまった。
+またやり直しか。 (timestamp: 2025-02-20 11:16:13)
+U08BTPRSAHZ: 左様ですか。 (timestamp: 2025-02-20 10:08:52)
+U08BTPRSAHZ: pstdevにしたら一致した。そーなのか。
+小数点以下３桁の数値なんて、チェックしねーわ (timestamp: 2025-02-20 10:06:09)
+U08BTPRSAHZ: おい、ふざけんな:rolling_on_the_floor_laughing: (timestamp: 2025-02-20 10:03:12)
