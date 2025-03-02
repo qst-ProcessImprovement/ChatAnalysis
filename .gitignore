@@ -1,6 +1,4 @@
-.DS_Store
-.venv
-__pycache__
-.pytest_cache
-result.txt
 .env
+.DS_Store
+result.txt
+.venv

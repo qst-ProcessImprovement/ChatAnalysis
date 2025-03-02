@@ -1,0 +1,36 @@
+name: Chat Analysis Workflow
+
+on:
+  # schedule:
+  #   - cron: '0 0 * * *'  # Run daily at midnight
+  # push:  # コミット時にトリガー
+  #   branches:
+  #     - main  # mainブランチへのプッシュ時に実行
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  analyze:
+    runs-on: self-hosted
+    # runs-on: ubuntu-latest
+    
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      SLACK_API_TOKEN: ${{ secrets.SLACK_API_TOKEN }}
+      SOURCE_CHANNEL_ID: ${{ secrets.SOURCE_CHANNEL_ID }}
+      TARGET_CHANNEL_ID: ${{ secrets.TARGET_CHANNEL_ID }}
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      # - name: Set up Python
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: "3.12.9"
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: Run chat analysis
+        run: python chat_analysis.py

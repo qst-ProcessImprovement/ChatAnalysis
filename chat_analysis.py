@@ -8,10 +8,27 @@ from typing import Dict, List, Optional, Any, Union
 from openai import OpenAI
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
-from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# Conditionally load environment variables from .env file when running locally
+try:
+    from dotenv import load_dotenv
+    # Check if .env file exists before loading
+    if os.path.exists('.env'):
+        load_dotenv()
+        print("Loaded environment variables from .env file")
+except ImportError:
+    # dotenv package not installed, assuming running in GitHub Actions
+    pass
+
+# Required environment variables:
+# - OPENAI_API_KEY
+# - SLACK_API_TOKEN
+# - SOURCE_CHANNEL_ID
+# - TARGET_CHANNEL_ID
+# 
+# These can be set in:
+# 1. A .env file (for local development, not committed to Git)
+# 2. GitHub Actions environment variables (for CI/CD workflows)
 
 # Set up logging
 logging.basicConfig(
@@ -24,14 +41,11 @@ logger = logging.getLogger(__name__)
 DEBUG_CONVERSATION_FILE = "debug/conversation_history.txt"
 DEBUG_RESULT_FILE = "debug/result.txt"
 
-# Load emotion analysis prompt from file
-EMOTION_ANALYSIS_PROMPT_FILE = "emotion_analysis_prompt.txt"
-try:
-    with open(EMOTION_ANALYSIS_PROMPT_FILE, "r") as file:
-        EMOTION_ANALYSIS_PROMPT_CORE = file.read().strip()
-except FileNotFoundError as e:
-    logger.warning(f"Emotion analysis prompt file not found: {EMOTION_ANALYSIS_PROMPT_FILE}")
-    raise e
+# Hardcoded emotion analysis prompt
+EMOTION_ANALYSIS_PROMPT_CORE = """これらのメッセージからユーザーの感情状態を簡潔に分析してください。
+ポジティブな感情、ネガティブな感情、中立的な感情などを特定し、
+その日のユーザーの全体的な感情状態を3-5文程度で簡潔に要約してください。
+冗長な説明は避け、要点のみを述べてください。"""
 
 
 class OpenAIClient:
@@ -447,6 +461,8 @@ class ChatAnalysisApp:
         Args:
             config: Configuration dictionary with API keys and channel IDs.
                    If None, will be loaded from environment variables.
+                   Environment variables can be set in a .env file (for local development)
+                   or in GitHub Actions (for CI/CD workflows).
         """
         self.config = config or {
             "openai_api_key": os.getenv("OPENAI_API_KEY"),
@@ -600,6 +616,12 @@ def main():
     try:
         # Set the current working directory to the module's folder
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
+        
+        # Log the source of environment variables
+        if os.path.exists('.env'):
+            logger.info("Using environment variables from .env file for API keys and channel IDs")
+        else:
+            logger.info("Using environment variables from system environment (GitHub Actions) for API keys and channel IDs")
         
         # Create and run the application
         app = ChatAnalysisApp()
